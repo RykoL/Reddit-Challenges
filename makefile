@@ -1,13 +1,9 @@
-all: eratosthenes testSort
+LD_PATH = -L/usr/local/lib -Wl,-rpath=/usr/local/lib
 
-eratosthenes: clean
-	g++ eratosthenes.cpp -Wall -std=c++11 -o eratosthenes
-	./eratosthenes 100 -o
+all: challenge10
 
-clean:
-	if [ -e eratosthenes ]; then rm eratosthenes; fi
 
-testSort:
-	if [ -e test-sort ]; then rm test-sort; fi
-	g++ testSort.cpp -Wall -std=c++11 -o test-sort
-	./test-sort
+challenge10:
+	if [ -e challenge10 ]; then rm challenge10; fi
+	g++ challenge10.cpp -I/usr/local/include $(LD_PATH) -lboost_regex -std=c++1y  -o challenge10	
+	./challenge10
